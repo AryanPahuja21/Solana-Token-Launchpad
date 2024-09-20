@@ -1,6 +1,6 @@
 const Launchpad = () => {
   return (
-    <div className="h-screen flex flex-col gap-14 justify-center items-center">
+    <div className="mt-24 flex flex-col gap-14 justify-center items-center">
       <h1 className="text-4xl font-bold">Solana Token Launchpad</h1>
       <div className="flex flex-col gap-7">
         <input
