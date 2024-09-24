@@ -45,10 +45,14 @@ const Launchpad = () => {
       )
     );
 
+    const recentBlockhash = await connection.getLatestBlockhash();
+    transaction.recentBlockhash = recentBlockhash.blockhash;
+    transaction.feePayer = wallet.publicKey!;
+
     transaction.partialSign(keypair);
 
-    alert("Token created successfully!");
-    window.location.reload();
+    let response = await wallet.sendTransaction(transaction, connection);
+    console.log(response);
   };
 
   return (
