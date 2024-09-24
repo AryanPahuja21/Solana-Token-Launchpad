@@ -3,12 +3,9 @@ import {
   ConnectionProvider,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
-import {
-  WalletModalProvider,
-  WalletDisconnectButton,
-  WalletMultiButton,
-} from "@solana/wallet-adapter-react-ui";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import "@solana/wallet-adapter-react-ui/styles.css";
+import WalletAdapter from "./components/WalletAdapter";
 
 function App() {
   return (
@@ -16,11 +13,8 @@ function App() {
       <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
         <WalletProvider wallets={[]} autoConnect>
           <WalletModalProvider>
-            <div className="h-screen">
-              <div className="flex justify-between px-20 py-10">
-                <WalletMultiButton />
-                <WalletDisconnectButton />
-              </div>
+            <div>
+              <WalletAdapter />
               <Launchpad />
             </div>
           </WalletModalProvider>
